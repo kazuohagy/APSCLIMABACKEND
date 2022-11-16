@@ -1,10 +1,12 @@
 const express = require("express");
 //node-fetch
 const fetch = require("node-fetch");
+const cors = require("cors");
 const app = express();
 const apiKey = "a3716f3bb1655185feee051b1e9ea397";
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.get("/", async (req, res) => {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}`
